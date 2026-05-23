@@ -4,13 +4,13 @@ const oracledb = require('oracledb');
 
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
-const connectString = process.env.DB_CONNECT_STRING || `${process.env.DB_HOST || 'localhost'}:${Number(process.env.DB_PORT || 1521)}/${process.env.DB_SERVICE_NAME || 'XEPDB1'}`;
+const connectString = process.env.DB_CONNECT_STRING || `${process.env.DB_HOST || 'localhost'}:${Number(process.env.DB_PORT || 1522)}/${process.env.DB_SERVICE_NAME || 'xe'}`;
 
 async function run() {
-  const appUser = (process.env.DB_USER || 'GROCERY_APP').toUpperCase();
-  const appPassword = process.env.DB_PASSWORD || 'grocery_app';
-  const adminUser = process.env.ADMIN_DB_USER || 'SYSTEM';
-  const adminPassword = process.env.ADMIN_DB_PASSWORD || '';
+  const appUser = (process.env.DB_USER || 'C##CARTZEN').toUpperCase();
+  const appPassword = process.env.DB_PASSWORD || '1234';
+  const adminUser = process.env.ADMIN_DB_USER || 'system';
+  const adminPassword = process.env.ADMIN_DB_PASSWORD || 'oracle123';
 
   const connection = await oracledb.getConnection({
     user: adminUser,
